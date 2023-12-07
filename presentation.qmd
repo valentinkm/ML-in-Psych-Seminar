@@ -1,0 +1,21 @@
+---
+title: "Automatic scoring of speeded interpersonal assessment center exercises via machine learning: Initial psychometric evidence and practical guidelines"
+subtitle: "Louis Hickman, Christoph N. Herde, Filip Lievens, Louis Tay (2023)"
+author: "Valentin Kriegmair"
+format:
+  revealjs:
+    theme: dark
+---
+
+## Introduction
+* Speeded interpersonal assessment center exercises (SIACEs) are a new form of assessment center exercises
+* SIACEs are scored by human raters
+
+## Methods
+* 3 SIACEs were administered to 1,000 participants
+
+## Results
+* The machine learning models were able to predict the human ratings with high accuracy
+
+## Discussion
+* The machine learning models can be used to score SIACEs automatically
