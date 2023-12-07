@@ -1,10 +1,7 @@
 ---
-title: "Automatic scoring of speeded interpersonal assessment center exercises via machine learning: Initial psychometric evidence and practical guidelines"
-subtitle: "Louis Hickman, Christoph N. Herde, Filip Lievens, Louis Tay (2023)"
+title: "Test"
 author: "Valentin Kriegmair"
-format:
-  revealjs:
-    theme: dark
+format: revealjs
 ---
 
 ## Introduction
