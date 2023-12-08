@@ -1,7 +1,10 @@
 ---
 title: "Test"
 author: "Valentin Kriegmair"
-format: revealjs
+format: 
+  revealjs:
+    theme: "moon" # specify the theme here
+    transition: "slide" # specify the transition here
 ---
 
 ## Introduction
