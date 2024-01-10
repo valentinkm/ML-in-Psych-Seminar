@@ -4,18 +4,16 @@ author: "Valentin Kriegmair"
 format: 
   revealjs:
     theme: "moon" # specify the theme here
+    slide-number: true
     transition: "slide" # specify the transition here
 ---
 
-## Introduction
-* Speeded interpersonal assessment center exercises (SIACEs) are a new form of assessment center exercises
-* SIACEs are scored by human raters
+## Outline
+* Recap
+* Walk-through
+  * Model Set-up
+  * Output Interpretation
 
-## Methods
-* 3 SIACEs were administered to 1,000 participants
+## Walkthrough
 
-## Results
-* The machine learning models were able to predict the human ratings with high accuracy
-
-## Discussion
-* The machine learning models can be used to score SIACEs automatically
+## Excercise
