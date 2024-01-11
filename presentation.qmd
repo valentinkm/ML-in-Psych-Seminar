@@ -1,11 +1,11 @@
 ---
-title: "Test"
+title: "Hands On continious time modeling with ctsem"
 author: "Valentin Kriegmair"
 format: 
   revealjs:
-    theme: "moon" # specify the theme here
+    theme: "moon"
     slide-number: true
-    transition: "slide" # specify the transition here
+    transition: "none" 
 ---
 
 ## Outline
