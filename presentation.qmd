@@ -14,6 +14,10 @@ format:
   * Model Set-up
   * Output Interpretation
 
-## Walkthrough
 
-## Excercise
+## Recap
+Multivariate stochastic differential equation:
+
+\[
+d\mathbf{m}_i(t) = \left( A\mathbf{n}_i(t) + \boldsymbol{\xi}_i + B\mathbf{z}_i + M\mathbf{x}_i(t) \right)dt + Gd\mathbf{W}_i(t).
+\]
