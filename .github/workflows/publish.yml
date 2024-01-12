@@ -8,6 +8,7 @@ name: Quarto Publish
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    container: kriegmair/ctsem-presentation:latest
     permissions:
       contents: write
     steps:
@@ -17,21 +18,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Create R Library Directory
-        run: mkdir -p ${{ github.workspace }}/R-lib
-
-      - name: Install R packages
-        run: |
-          Rscript -e 'install.packages("rmarkdown", lib = "${{ github.workspace }}/R-lib")'
-          Rscript -e 'install.packages("ctsem", lib = "${{ github.workspace }}/R-lib")'
-          Rscript -e 'install.packages("ctsemOMX", lib = "${{ github.workspace }}/R-lib")'
-        env:
-          R_LIBS_USER: ${{ github.workspace }}/R-lib
-
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          R_LIBS_USER: ${{ github.workspace }}/R-lib
