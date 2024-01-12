@@ -17,6 +17,12 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages("rmarkdown")'
+          Rescript -e 'install.packages("ctsem")'
+          Rscript -e 'install.packages("ctsemOMX")'
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
