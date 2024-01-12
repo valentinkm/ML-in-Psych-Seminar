@@ -14,10 +14,106 @@ format:
   * Model Set-up
   * Output Interpretation
 
+## Recap I
+What are the assumptions about time in the general cross lagged panel model (GCLPM)?
 
-## Recap
+* time prgoresses in discrete steps
+* equally spaced measurement occasions
+* subjects are measured at the same time points
+
+## Recap II
+What limitations does discrete time modeling of longitudinal data?
+
+* biased parameter estimates due to:
+  * unequally spaced measurement waves in the panel data
+  * measurement of individual subjects at each wave spread out over time
+
+* uncomparable parameter estimates across studies unequally spaced time intervals
+
+## Recap II
 Multivariate stochastic differential equation:
 
-\[
-d\mathbf{m}_i(t) = \left( A\mathbf{n}_i(t) + \boldsymbol{\xi}_i + B\mathbf{z}_i + M\mathbf{x}_i(t) \right)dt + Gd\mathbf{W}_i(t).
-\]
+\begin{gather*}
+\mathrm{d} \boldsymbol{\eta}_i(t)=\left({\mathbf{A}} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
+\end{gather*}
+
+## Recap II
+Multivariate stochastic \color{red}{differential} equation:
+
+\begin{gather*}
+\color{red}{\mathrm{d}} \boldsymbol{\eta}_i(\color{red}{t})=\left(\mathbf{A} \boldsymbol{\eta}_i(\color{red}{t})+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \color{red}{\mathrm{d} t}+\mathbf{G} \color{red}{\mathrm{d}} \mathbf{W}_i(\color{red}{t})
+\end{gather*}
+
+modelling change in latent variables $\boldsymbol{\eta}_i(t)$
+ as a function of time over infinitesimal time steps $\color{red}{\mathrm{d} t}$
+
+## Recap II
+Multivariate stochastic differential equation:
+
+\begin{gather*}
+\mathrm{d} \boldsymbol{\eta}_i(t)=\left(\color{red}{\mathbf{A}} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
+\end{gather*}
+
+modelling change as a function of time over infinitesimal time steps $\mathrm{d} t$
+
+* $\color{red}{\mathbf{A}}$: drift matrix with auto effects on the diagonal and cross effects on the off-diagonals ($\mathbf{A} \in \mathbb{R}^{v \times v}$).
+
+
+## Recap II
+Multivariate stochastic differential equation:
+
+\begin{gather*}
+\mathrm{d} \boldsymbol{\eta}_i(t)=\left(\mathbf{A} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
+\end{gather*}
+
+modelling change as a function of time over infinitesimal time steps $\mathrm{d} t$
+
+* $\mathbf{A}$: drift matrix with auto effects on the diagonal and cross effects on the off-diagonals ($\mathbf{A} \in \mathbb{R}^{v \times v}$).
+
+* $\mathbf{z_i}$: time independent predictors
+
+* $\boldsymbol{\chi}_i(t)$: time dependent predictors
+
+* $\mathbf{W}_i(t)$: stochastic error term (Wiener process)
+
+* $\mathbf{G}$: diffusion matrix
+
+## Recap II
+Multivariate stochastic differential equation:
+
+\begin{gather*}
+\mathrm{d} \boldsymbol{\eta}_i(t)=\left(\mathbf{A} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
+\end{gather*}
+
+
+measurement part:
+\begin{gather*}
+\mathbf{y}(t)=\boldsymbol{\Lambda} \boldsymbol{\eta}(t)+{\boldsymbol{\tau}}+\boldsymbol{\varepsilon}(t)
+\end{gather*}
+\begin{gather*}
+\boldsymbol{\varepsilon}(t) \sim \mathrm{N}(\mathbf{0}, \mathbf{Θ})
+\end{gather*}
+
+* $\boldsymbol{\Lambda}$: factor loadings
+* $\boldsymbol{\tau}$: intercepts
+* $\boldsymbol{\varepsilon}(t)$: measurement error
+
+## Visualisation{}
+\begin{gather*}
+\mathrm{d} {\color{purple}{\boldsymbol{\eta}_i(t)}}=\left({\color{red}{\mathbf{A}}} {\color{purple}{\boldsymbol{\eta}_i(t)}}+{\mathbf{B}} {\mathbf{z}_i}+{\mathbf{M}} {\color{purple}{\boldsymbol{\chi}_i(t)}}\right) \mathrm{d} t+{\color{pink}{\mathbf{G}}} \mathrm{d} {\color{pink}{\mathbf{W}_i(t)}}
+\end{gather*}
+
+\begin{gather*}
+{\color{turquoise}{\mathbf{y}(t)}}={\color{green}{\boldsymbol{\Lambda}}} {\color{purple}{\boldsymbol{\eta}(t)}}+{\boldsymbol{\tau}}+{\boldsymbol{\varepsilon}(t)}
+\end{gather*}
+
+
+## Load dataset
+```{r}
+#install.packages("ctsem")
+library(ctsem)
+library(ctsemOMX)
+data("datastructure", package = "ctsem")
+datastructure
+```
+
