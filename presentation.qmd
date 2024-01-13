@@ -11,8 +11,8 @@ format:
 ## Outline
 * Recap
 * Walk-through
-  * Model Set-up
-  * Output Interpretation
+* Excercise
+* Summary
 
 ## Recap I
 What are the assumptions about time in the general cross lagged panel model (GCLPM)?
@@ -98,13 +98,21 @@ measurement part:
 * $\boldsymbol{\tau}$: intercepts
 * $\boldsymbol{\varepsilon}(t)$: measurement error
 
+## Media Backgrounds {background-image="figures/figure3-1.png"}
 
-## Load dataset
+## Introducing ctsem & ctsemOMX
+* ctsem interfaces with Stan
+* ctsemOMX interfaces with OpenMx
+* today we will use ctsemOMX
 ```{r}
-#install.packages("ctsem")
-library(ctsem)
-library(ctsemOMX)
+# install.packages("ctsem")
+# install.packages("ctsemOMX")
+library(ctsem) # loads ctsem
+library(ctsemOMX) # loads ctsem and ctsemOMX
+
 data("datastructure", package = "ctsem")
 datastructure
 ```
+
+
 
