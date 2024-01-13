@@ -19,11 +19,6 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
     && apt-get update && apt-get install -y gh
 
-# Install Quarto
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.0/quarto-0.1.0-linux-amd64.deb -O quarto.deb \
-    && dpkg -i quarto.deb \
-    && rm quarto.deb
-
 # Install R packages
 RUN Rscript -e "install.packages('rmarkdown')" \
     && Rscript -e "install.packages('ctsem')" \
