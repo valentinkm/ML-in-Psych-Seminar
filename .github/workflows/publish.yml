@@ -14,12 +14,7 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      
-      - name: Install GitHub CLI
-        run: |
-          sudo apt update
-          sudo apt install -y gh
-      
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
