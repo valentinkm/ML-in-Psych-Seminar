@@ -54,7 +54,7 @@ Multivariate stochastic differential equation:
 \mathrm{d} \boldsymbol{\eta}_i(t)=\left(\color{red}{\mathbf{A}} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
 \end{gather*}
 
-modelling change as a function of time over infinitesimal time steps $\mathrm{d} t$
+modelling change as a function of time over infinitesimal small time steps $\mathrm{d} t$
 
 * $\color{red}{\mathbf{A}}$: drift matrix with auto effects on the diagonal and cross effects on the off-diagonals ($\mathbf{A} \in \mathbb{R}^{v \times v}$).
 
@@ -66,7 +66,7 @@ Multivariate stochastic differential equation:
 \mathrm{d} \boldsymbol{\eta}_i(t)=\left(\mathbf{A} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
 \end{gather*}
 
-modelling change as a function of time over infinitesimal time steps $\mathrm{d} t$
+modelling change as a function of time over infinitesimal small time steps $\mathrm{d} t$
 
 * $\mathbf{A}$: drift matrix with auto effects on the diagonal and cross effects on the off-diagonals ($\mathbf{A} \in \mathbb{R}^{v \times v}$).
 
@@ -80,11 +80,9 @@ modelling change as a function of time over infinitesimal time steps $\mathrm{d}
 
 ## Recap II
 Multivariate stochastic differential equation:
-
 \begin{gather*}
 \mathrm{d} \boldsymbol{\eta}_i(t)=\left(\mathbf{A} \boldsymbol{\eta}_i(t)+\mathbf{B} \mathbf{z}_i+\mathbf{M} \boldsymbol{\chi}_i(t)\right) \mathrm{d} t+\mathbf{G} \mathrm{d} \mathbf{W}_i(t)
 \end{gather*}
-
 
 measurement part:
 \begin{gather*}
@@ -98,21 +96,30 @@ measurement part:
 * $\boldsymbol{\tau}$: intercepts
 * $\boldsymbol{\varepsilon}(t)$: measurement error
 
-## Media Backgrounds {background-image="figures/figure3-1.png"}
+## {background-image="figures/figure3-1.png"}
+## {background-image="figures/figure3-2.png"}
 
-## Introducing ctsem & ctsemOMX
-* ctsem interfaces with Stan
-* ctsemOMX interfaces with OpenMx
-* today we will use ctsemOMX
+## Introducing `ctsem` & `ctsemOMX`
+* R-packages `ctsem` & `ctsemOMX` to handle the math
+* `ctsem` interfaces with Stan
+* `ctsemOMX` interfaces with OpenMx
+* today we will use `ctsemOMX`
 ```{r}
 # install.packages("ctsem")
 # install.packages("ctsemOMX")
 library(ctsem) # loads ctsem
 library(ctsemOMX) # loads ctsem and ctsemOMX
+```
 
+## Data Structure
+* `ctsemOMX` uses wide data with time intervals specified in columns:
+```{r}
 data("datastructure", package = "ctsem")
 datastructure
 ```
 
-
-
+* to convert from the typical long format use `ctLongToWide()`:
+```{.r}
+df_wide <- ctLongToWide(datalong = df_long, id = "id",
+  time = "time", manifestNames = c("Y1", "Y2", "Y3"))
+```
