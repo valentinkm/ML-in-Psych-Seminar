@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 # Install Linux dependencies for R packages and other tools
 RUN apt-get update && apt-get install -y \
+    jq \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
